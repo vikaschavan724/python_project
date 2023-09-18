@@ -12,16 +12,16 @@ spark = SparkSession.builder.master("local").appName("Word Count").getOrCreate()
 #print(spark)
 
 
-data = [("Banana",3,"USA"),("Banana",2,"USA"), ("Carrots",4,"USA"), ("Beans",5,"USA")]
+data = [("Banana",1,"USA"),("Banana",2,"USA"), ("Carrots",4,"USA"), ("Beans",5,"USA")]
 columns = ["Product","Amount","Country"]
 df=spark.createDataFrame(data,columns)
 #df.printSchema()
 #df.show(truncate=False)
 df.show()
-df1=df.withColumn("Amount", ceil(col("Amount")/3))
+df1=df.withColumn("Amount", ceil(col("Amount")/3)) #0.33,0.66,1.33,1.66
 df1.show()
-df3=df.withColumn("Amount", floor(col("Amount")/3))
+df3=df.withColumn("Amount", floor(col("Amount")/3)) #0.33,0.66,1.33,1.66
 df3.show()
-df2=df.withColumn("Amount", round(col("Amount")/3))
+df2=df.withColumn("Amount", round(col("Amount")/3)) #0.33,0.66,1.33,1.66
 df2.show()
 
