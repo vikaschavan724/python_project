@@ -12,7 +12,7 @@ spark = SparkSession.builder.master("local").appName("Word Count").getOrCreate()
 #print(spark)
 
 
-data = [("Banana",2,"USA"),("Banana",2,"USA"), ("Carrots",4,"USA"), ("Beans",5,"USA")]
+data = [("Banana",3,"USA"),("Banana",2,"USA"), ("Carrots",4,"USA"), ("Beans",5,"USA")]
 columns = ["Product","Amount","Country"]
 df=spark.createDataFrame(data,columns)
 #df.printSchema()
